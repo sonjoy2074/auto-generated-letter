@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Letter Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        form { background: #f9f9f9; padding: 20px; border-radius: 10px; max-width: 700px; }
+        label { font-weight: bold; margin-top: 10px; display: block; }
+        input, textarea, select, button {
+            margin: 5px 0 15px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        textarea { height: 100px; }
+        button { background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #45a049; }
+        .hidden { display: none; }
+    </style>
+    <script>
+        function toggleForm() {
+            const templateType = document.getElementById("template_type").value;
+            document.getElementById("aat_form").style.display = (templateType === "AAT") ? "block" : "none";
+            document.getElementById("gss_form").style.display = (templateType === "GSS") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <h2>Letter Generator (AAT / GSS)</h2>
+    <form method="POST">
+        <label>Select Template:</label>
+        <select name="template_type" id="template_type" onchange="toggleForm()" required>
+            <option value="">-- Select --</option>
+            <option value="AAT">AAT Submission Letter</option>
+            <option value="GSS">Genuine Student Statement (GSS)</option>
+        </select>
+
+        <!-- AAT FORM -->
+        <div id="aat_form" class="hidden">
+            <h3>AAT Submission Details</h3>
+            <label>Client Name:</label>
+            <input type="text" name="client_name">
+            <label>Date of Birth:</label>
+            <input type="date" name="dob">
+            <label>Application ID:</label>
+            <input type="text" name="application_id">
+            <label>File Number:</label>
+            <input type="text" name="file_number">
+            <label>Date of Refusal:</label>
+            <input type="date" name="date_of_refusal">
+            <label>Representative:</label>
+            <input type="text" name="representative">
+            <label>MARN:</label>
+            <input type="text" name="marn">
+            <h4>Clause 500.212 – Genuine Student Criterion</h4>
+            <label>a Circumstances in Home Country:</label>
+            <textarea name="home_country"></textarea>
+            <label>b Circumstances in Australia:</label>
+            <textarea name="australia"></textarea>
+            <label>c Value of Course:</label>
+            <textarea name="value_course"></textarea>
+            <label>d Previous Study:</label>
+            <textarea name="previous_study"></textarea>
+            <label>e Immigration History:</label>
+            <textarea name="immigration_history"></textarea>
+            <label>f Other Matters:</label>
+            <textarea name="other_matters"></textarea>
+        </div>
+
+        <!-- GSS FORM -->
+        <div id="gss_form" class="hidden">
+            <h3>Genuine Student Statement Details</h3>
+            <label>Client Name:</label>
+            <input type="text" name="client_name_v1">
+            <label>Date of Birth:</label>
+            <input type="date" name="dob_v1">
+            <label>Nationality:</label>
+            <input type="text" name="nationality">
+            <label>Passport Number:</label>
+            <input type="text" name="passport_number">
+            <label>Proposed Course:</label>
+            <input type="text" name="course_name">
+            <label>Education Provider:</label>
+            <input type="text" name="education_provider">
+            <label>Intended Start Date:</label>
+            <input type="date" name="start_date">
+            <label>Previous Study:</label>
+            <textarea name="previous_study"></textarea>
+            <label>Academic Achievements:</label>
+            <textarea name="academic_achievements"></textarea>
+            <label>Why Australia:</label>
+            <textarea name="why_australia"></textarea>
+            <label>Why Not Home Country:</label>
+            <textarea name="why_not_home"></textarea>
+            <label>Why This Institution:</label>
+            <textarea name="why_institution"></textarea>
+            <label>Career Plans:</label>
+            <textarea name="career_plans"></textarea>
+            <label>Funding Sources:</label>
+            <textarea name="funding_sources"></textarea>
+            <label>Family Ties:</label>
+            <textarea name="family_ties"></textarea>
+            <label>Return Home Incentive:</label>
+            <textarea name="return_home"></textarea>
+            <label>Representative:</label>
+            <input type="text" name="representative_v1">
+            <label>MARN:</label>
+            <input type="text" name="marn_v1">
+        </div>
+
+        <button type="submit">Generate Document</button>
+    </form>
+</body>
+</html>
