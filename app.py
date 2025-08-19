@@ -3,6 +3,9 @@ from flask import Flask, render_template, request, send_file
 from docx import Document
 from openai import OpenAI
 from datetime import datetime
+import cloudinary
+import cloudinary.uploader
+from cloudinary.utils import cloudinary_url
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -11,6 +14,14 @@ app.config['UPLOAD_FOLDER'] = 'uploads'
 # Prefer environment variable; fallback to literal only for local testing.
 #OPENAI_API_KEY = os.getenv("")
 client = OpenAI(api_key="")
+
+
+cloudinary.config( 
+    cloud_name = "dmze3pcjh", 
+    api_key = "966861392574793", 
+    api_secret = "al310I4Vz48f2URu2J1mTJab1Ko", 
+    secure=True
+)
 
 # --- AAT SYSTEM TEMPLATE ---
 AAT_TEMPLATE = """
@@ -218,7 +229,19 @@ def index():
                 letter_text = ask_gpt(system_prompt, prompt_filled)
                 output_path = save_docx(letter_text, "GSS_statement")
 
-            return send_file(output_path, as_attachment=True)
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            public_id = f"doc_{timestamp}"
+            upload_result = cloudinary.uploader.upload(output_path,
+                                           public_id=public_id, resource_type="raw")
+            
+            download_link, _ = cloudinary_url(
+                upload_result["public_id"],
+                resource_type="raw",
+                flags="attachment"
+            )
+            print(download_link)
+            # return send_file(output_path, as_attachment=True)
+            return download_link
 
         except Exception as e:
             return f"Error: {str(e)}"
