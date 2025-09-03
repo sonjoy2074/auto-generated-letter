@@ -21,24 +21,35 @@
     <script>
         function toggleForm() {
             const templateType = document.getElementById("template_type").value;
-            document.getElementById("aat_form").style.display = (templateType === "AAT") ? "block" : "none";
-            document.getElementById("gss_form").style.display = (templateType === "GSS") ? "block" : "none";
+            const forms = ["aat_form", "gss_form", "gte_form", "art_form", "tourist_form"];
+            forms.forEach(f => document.getElementById(f).style.display = "none");
+
+            if (templateType === "AAT") document.getElementById("aat_form").style.display = "block";
+            if (templateType === "GSS") document.getElementById("gss_form").style.display = "block";
+            if (templateType === "GTE") document.getElementById("gte_form").style.display = "block";
+            if (templateType === "ART") document.getElementById("art_form").style.display = "block";
+            if (templateType === "TOURIST_VISA") document.getElementById("tourist_form").style.display = "block";
         }
     </script>
 </head>
 <body>
-    <h2>Letter Generator (AAT / GSS)</h2>
+    <h2>Letter Generator (AAT / GSS / GTE / ART / Tourist Visa)</h2>
     <form method="POST">
         <label>Select Template:</label>
         <select name="template_type" id="template_type" onchange="toggleForm()" required>
             <option value="">-- Select --</option>
             <option value="AAT">AAT Submission Letter</option>
             <option value="GSS">Genuine Student Statement (GSS)</option>
+            <option value="GTE">Genuine Temporary Entrant (GTE)</option>
+            <option value="ART">Administrative Review Tribunal (ART)</option>
+            <option value="TOURIST_VISA">Tourist Visa (Subclass 600)</option>
         </select>
 
         <!-- AAT FORM -->
         <div id="aat_form" class="hidden">
             <h3>AAT Submission Details</h3>
+            <label>State office address:</label>
+            <input type="text" name="state_office_address">
             <label>Client Name:</label>
             <input type="text" name="client_name">
             <label>Date of Birth:</label>
@@ -107,6 +118,125 @@
             <input type="text" name="representative_v1">
             <label>MARN:</label>
             <input type="text" name="marn_v1">
+        </div>
+
+        <!-- GTE FORM -->
+        <div id="gte_form" class="hidden">
+            <h3>GTE Letter Details</h3>
+            <label>Full Name:</label>
+            <input type="text" name="full_name">
+            <label>Date of Birth:</label>
+            <input type="date" name="dob_gte">
+            <label>Place of Birth:</label>
+            <input type="text" name="birth_place">
+            <label>Course Name:</label>
+            <input type="text" name="course_name">
+            <label>Education Provider:</label>
+            <input type="text" name="education_provider">
+            <label>Education Background:</label>
+            <textarea name="education_background"></textarea>
+            <label>Professional Experience:</label>
+            <textarea name="professional_experience"></textarea>
+            <label>Career Aspirations:</label>
+            <textarea name="career_aspirations"></textarea>
+            <label>International Exposure:</label>
+            <textarea name="international_exposure"></textarea>
+            <label>Study Objective:</label>
+            <textarea name="study_objective"></textarea>
+            <label>Why Australia:</label>
+            <textarea name="why_australia"></textarea>
+            <label>Why This Institution:</label>
+            <textarea name="why_institution"></textarea>
+            <label>Expected Outcomes:</label>
+            <textarea name="expected_outcomes"></textarea>
+            <label>Financial Capacity:</label>
+            <textarea name="financial_capacity"></textarea>
+            <label>Family Ties:</label>
+            <textarea name="family_ties"></textarea>
+            <label>Professional Commitments:</label>
+            <textarea name="professional_commitments"></textarea>
+            <label>Community Engagement:</label>
+            <textarea name="community_engagement"></textarea>
+            <label>Home Country:</label>
+            <input type="text" name="home_country_gte">
+        </div>
+
+        <!-- ART FORM -->
+        <div id="art_form" class="hidden">
+            <h3>ART Submission Details</h3>
+            <label>Applicant Name:</label>
+            <input type="text" name="applicant_name">
+            <label>Date of Birth:</label>
+            <input type="date" name="dob_art">
+            <label>Address:</label>
+            <input type="text" name="address">
+            <label>Visa Applied For:</label>
+            <input type="text" name="visa_applied_for">
+            <label>Date of Application:</label>
+            <input type="date" name="application_date">
+            <label>Application ID:</label>
+            <input type="text" name="application_id_art">
+            <label>Transaction Reference:</label>
+            <input type="text" name="transaction_reference">
+            <label>File Number:</label>
+            <input type="text" name="file_number">
+            <label>Date of Refusal:</label>
+            <input type="date" name="refusal_date">
+            <label>Circumstances in Home Country:</label>
+            <textarea name="circumstances_home_country"></textarea>
+            <label>Circumstances in Australia:</label>
+            <textarea name="circumstances_australia"></textarea>
+            <label>Value of the Course:</label>
+            <textarea name="course_value"></textarea>
+            <label>Immigration History:</label>
+            <textarea name="immigration_history"></textarea>
+            <label>Financial Capacity:</label>
+            <textarea name="financial_capacity"></textarea>
+            <label>Family Ties in Home Country:</label>
+            <textarea name="family_ties_home"></textarea>
+            <label>Representative:</label>
+            <input type="text" name="representative_name_art">
+        </div>
+
+        <!-- TOURIST VISA FORM -->
+        <div id="tourist_form" class="hidden">
+            <h3>Tourist Visa Application</h3>
+            <label>Embassy Location:</label>
+            <input type="text" name="embassy_location">
+            <label>Applicants (full list):</label>
+            <textarea name="applicants_list"></textarea>
+            <label>Applicants (short):</label>
+            <input type="text" name="applicants_short">
+            <label>Travel Start Date:</label>
+            <input type="date" name="travel_start_date">
+            <label>Travel End Date:</label>
+            <input type="date" name="travel_end_date">
+            <label>Family Relation:</label>
+            <input type="text" name="family_relation">
+            <label>Family Member Name:</label>
+            <input type="text" name="family_member_name">
+            <label>Family Member Status:</label>
+            <input type="text" name="family_member_status">
+            <label>Family Member Location:</label>
+            <input type="text" name="family_member_location">
+            <label>Special Occasions:</label>
+            <textarea name="special_occasions"></textarea>
+            <label>Planned Cities to Visit:</label>
+            <textarea name="planned_cities"></textarea>
+            <label>Personal Background:</label>
+            <textarea name="personal_background"></textarea>
+            <label>Travel Plan:</label>
+            <textarea name="travel_plan"></textarea>
+            <label>Financial Capacity:</label>
+            <textarea name="financial_capacity"></textarea>
+            <label>Home Country:</label>
+            <input type="text" name="home_country">
+            <label>Home Country Ties:</label>
+            <textarea name="home_country_ties"></textarea>
+            <label>Supporting Documents:</label>
+            <textarea name="supporting_documents"></textarea>
+            <label>Primary Applicant Name:</label>
+            <input type="text" name="primary_applicant_name">
         </div>
 
         <button type="submit">Generate Document</button>
