@@ -70,20 +70,20 @@ def index():
                 )
                 letter_text = ask_gpt(system_prompt, prompt_filled)
                 output_path = save_docx(letter_text, "AAT_submission")
-            elif template_type == "GTE":
-                data = build_data_for_gte(request.form)
-                prompt_filled = GTE_TEMPLATE.format(**data)
-                system_prompt = (
-                    "You are an Australian registered migration agent drafting a Genuine Temporary Entrant (GTE) statement "
-                    "for a Student Visa (Subclass 500) application. "
-                    "Use precise legal and regulatory references, including clause 500.212 of Schedule 2 to the Migration Regulations 1994, "
-                    "section 65 of the Migration Act 1958, and Ministerial Direction No. 108. "
-                    "Ensure the tone is formal, truthful, and persuasive, clearly addressing all GTE factors: "
-                    "home country circumstances, potential circumstances in Australia, the value of the course, "
-                    "immigration history, and other relevant matters."
-                )
-                letter_text = ask_gpt(system_prompt, prompt_filled)
-                output_path = save_docx(letter_text, "GTE_submission")
+            # elif template_type == "GTE":
+            #     data = build_data_for_gte(request.form)
+            #     prompt_filled = GTE_TEMPLATE.format(**data)
+            #     system_prompt = (
+            #         "You are an Australian registered migration agent drafting a Genuine Temporary Entrant (GTE) statement "
+            #         "for a Student Visa (Subclass 500) application. "
+            #         "Use precise legal and regulatory references, including clause 500.212 of Schedule 2 to the Migration Regulations 1994, "
+            #         "section 65 of the Migration Act 1958, and Ministerial Direction No. 108. "
+            #         "Ensure the tone is formal, truthful, and persuasive, clearly addressing all GTE factors: "
+            #         "home country circumstances, potential circumstances in Australia, the value of the course, "
+            #         "immigration history, and other relevant matters."
+            #     )
+            #     letter_text = ask_gpt(system_prompt, prompt_filled)
+            #     output_path = save_docx(letter_text, "GTE_submission")
             elif template_type == "GSS":
                 data = build_data_for_gss(request.form)
                 print(type(data))  # Debugging line to check data structure

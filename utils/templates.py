@@ -29,9 +29,9 @@ Refusal Under Clauses 500.212, 500.213, 500.214, and 500.217 of Schedule 2 to th
 Dear Tribunal Member,
 
 I respectfully submit this statement on behalf of the applicant in support of their application for merits review before the Tribunal.
-The applicant seeks review of a decision to refuse their Student visa (subclass 500) and maintains they meet all relevant criteria.
+The applicant seeks review of a decision to refuse their Student visa (subclass {subclass}) and maintains they meet all relevant criteria.
 
-1. CLAUSE 500.212 – GENUINE STUDENT CRITERION
+1. GENUINE STUDENT CRITERION
 a) Circumstances in Home Country:
 {home_country}
 
@@ -50,15 +50,18 @@ e) Immigration History:
 f) Other Relevant Matters:
 {other_matters}
 
-2. CLAUSE 500.213 – ENGLISH LANGUAGE REQUIREMENT
+2. ENGLISH LANGUAGE REQUIREMENT
+{english_language}
 Provide a concise, professional justification that the applicant meets English requirements under LIN 24/022
 (e.g., valid test results with scores, packaged ELICOS where relevant, or an applicable exemption). Avoid placeholders.
 
-3. CLAUSE 500.214 – CONFIRMATION OF ENROLMENT
+3. CONFIRMATION OF ENROLMENT
+{confirmation_of_enrolment}
 Confirm the applicant has a valid current COE for a CRICOS-registered course (principal or packaged).
 Clarify any previous deficiencies have been corrected with updated documentation.
 
-4. CLAUSE 500.217 – FINANCIAL CAPACITY
+4. FINANCIAL CAPACITY
+{financial_capacity}
 Summarise evidence of tuition payments, savings, sponsor income, and any affidavits/statutory declarations,
 linking them to the Department’s financial capacity framework.
 
@@ -215,7 +218,7 @@ To facilitate the processing of our visa applications, we have attached the foll
 {supporting_documents}
 
 Conclusion
-We kindly request your favourable consideration of our Tourist Visa (Subclass 600) applications. Our intention is solely to travel to Australia temporarily to visit family, celebrate special occasions, and explore Australia’s attractions. We are committed to complying with all visa conditions and returning to {home_country} at the end of our trip.
+We kindly request your favourable consideration of our Tourist Visa (Subclass {subclass_tv}) applications. Our intention is solely to travel to Australia temporarily to visit family, celebrate special occasions, and explore Australia’s attractions. We are committed to complying with all visa conditions and returning to {home_country} at the end of our trip.
 
 Should you require any additional information or documentation, please do not hesitate to contact me.
 
@@ -228,55 +231,55 @@ Sincerely,
 
 
 
-# --- GTE SYSTEM TEMPLATE (FULL FORMAT) ---
-GTE_TEMPLATE = """
-TO: The Department of Home Affairs
-Sydney, Australia
+# # --- GTE SYSTEM TEMPLATE (FULL FORMAT) ---
+# GTE_TEMPLATE = """
+# TO: The Department of Home Affairs
+# Sydney, Australia
 
-Genuine Temporary Entrant (GTE) Letter for Australian Student Visa Application
+# Genuine Temporary Entrant (GTE) Letter for Australian Student Visa Application
 
-I, {full_name}, born on {dob_gte} in {birth_place}, am writing to express my genuine intent to pursue {course_name} at {education_provider} in Australia. 
-This letter accompanies my application for an Australian Student Visa, underscoring my commitment to enhancing my skills for future career and personal development, 
-and to assert that my intentions align with the Genuine Temporary Entrant requirement.
+# I, {full_name}, born on {dob_gte} in {birth_place}, am writing to express my genuine intent to pursue {course_name} at {education_provider} in Australia. 
+# This letter accompanies my application for an Australian Student Visa, underscoring my commitment to enhancing my skills for future career and personal development, 
+# and to assert that my intentions align with the Genuine Temporary Entrant requirement.
 
-Educational Background
-{education_background}
+# Educational Background
+# {education_background}
 
-Professional Background
-{professional_experience}
+# Professional Background
+# {professional_experience}
 
-Academic & Career Aspirations
-{career_aspirations}
+# Academic & Career Aspirations
+# {career_aspirations}
 
-International Exposure and Motivation
-{international_exposure}
+# International Exposure and Motivation
+# {international_exposure}
 
-Primary Objective of Study
-{study_objective}
+# Primary Objective of Study
+# {study_objective}
 
-Reasons for Choosing Australia
-{why_australia}
+# Reasons for Choosing Australia
+# {why_australia}
 
-Reasons for Choosing {education_provider}
-{why_institution}
+# Reasons for Choosing {education_provider}
+# {why_institution}
 
-Expected Outcomes from the Course
-{expected_outcomes}
+# Expected Outcomes from the Course
+# {expected_outcomes}
 
-Financial Capacity
-{financial_capacity}
+# Financial Capacity
+# {financial_capacity}
 
-Ties to Home Country
-{family_ties}
-{professional_commitments}
-{community_engagement}
+# Ties to Home Country
+# {family_ties}
+# {professional_commitments}
+# {community_engagement}
 
-Conclusion
-I assure you of my genuine intentions to comply with all visa conditions and to leave Australia upon completion of my studies. 
-My ultimate goal is to contribute significantly to my field and to {home_country_gte}, leveraging the knowledge and skills acquired through my educational journey in Australia. 
+# Conclusion
+# I assure you of my genuine intentions to comply with all visa conditions and to leave Australia upon completion of my studies. 
+# My ultimate goal is to contribute significantly to my field and to {home_country_gte}, leveraging the knowledge and skills acquired through my educational journey in Australia. 
 
-Thank you for considering my application. 
+# Thank you for considering my application. 
 
-Yours sincerely,  
-{full_name}
-"""
+# Yours sincerely,  
+# {full_name}
+# """

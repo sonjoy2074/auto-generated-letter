@@ -19,6 +19,9 @@ def build_data_for_aat(form):
         "previous_study": get_form_value(form, "previous_study"),
         "immigration_history": get_form_value(form, "immigration_history"),
         "other_matters": get_form_value(form, "other_matters"),
+        "english_language": get_form_value(form, "english_language"),
+        "confirmation_of_enrolment": get_form_value(form, "confirmation_of_enrolment"),
+        "financial_capacity": get_form_value(form, "financial_capacity"),
     }
 
 def build_data_for_gss(form):
@@ -85,25 +88,25 @@ def build_data_for_tourist_visa(form):
         "primary_applicant_name": get_form_value(form, "primary_applicant_name")
     }
 
-def build_data_for_gte(form):
-    return{
-        "full_name": get_form_value(form, "full_name"),
-        "dob_gte": get_form_value(form, "dob_gte"),
-        "birth_place": get_form_value(form, "birth_place"),
-        "course_name": get_form_value(form, "course_name"),
-        "education_provider": get_form_value(form, "education_provider"),
-        "education_background": get_form_value(form, "education_background"),
-        "professional_experience": get_form_value(form, "professional_experience"),
-        "career_aspirations": get_form_value(form, "career_aspirations"),
-        "international_exposure": get_form_value(form, "international_exposure"),
-        "study_objective": get_form_value(form, "study_objective"),
-        "why_australia": get_form_value(form, "why_australia"),
-        "education_provider": get_form_value(form, "education_provider"),
-        "why_institution": get_form_value(form, "why_institution"),
-        "expected_outcomes": get_form_value(form, "expected_outcomes"),
-        "financial_capacity": get_form_value(form, "financial_capacity"),
-        "family_ties": get_form_value(form, "family_ties"),
-        "professional_commitments": get_form_value(form, "professional_commitments"),
-        "community_engagement": get_form_value(form, "community_engagement"),
-        "home_country_gte": get_form_value(form, "home_country_gte")
-    }
+# def build_data_for_gte(form):
+#     return{
+#         "full_name": get_form_value(form, "full_name"),
+#         "dob_gte": get_form_value(form, "dob_gte"),
+#         "birth_place": get_form_value(form, "birth_place"),
+#         "course_name": get_form_value(form, "course_name"),
+#         "education_provider": get_form_value(form, "education_provider"),
+#         "education_background": get_form_value(form, "education_background"),
+#         "professional_experience": get_form_value(form, "professional_experience"),
+#         "career_aspirations": get_form_value(form, "career_aspirations"),
+#         "international_exposure": get_form_value(form, "international_exposure"),
+#         "study_objective": get_form_value(form, "study_objective"),
+#         "why_australia": get_form_value(form, "why_australia"),
+#         "education_provider": get_form_value(form, "education_provider"),
+#         "why_institution": get_form_value(form, "why_institution"),
+#         "expected_outcomes": get_form_value(form, "expected_outcomes"),
+#         "financial_capacity": get_form_value(form, "financial_capacity"),
+#         "family_ties": get_form_value(form, "family_ties"),
+#         "professional_commitments": get_form_value(form, "professional_commitments"),
+#         "community_engagement": get_form_value(form, "community_engagement"),
+#         "home_country_gte": get_form_value(form, "home_country_gte")
+#     }
