@@ -4,7 +4,7 @@ from multiprocessing.dummy.connection import Client
 
 AAT_TEMPLATE = """
 You are a professional migration agent drafting an Administrative Appeals Tribunal (AAT) submission letter
-for a refused Student Visa (Subclass 500). Use a formal, respectful tone and keep structure tight.
+for a refused Student Visa (Subclass {subclass}). Use a formal, respectful tone and keep structure tight.
 
 Follow this structure exactly, filling in with applicant data where provided:
 
@@ -18,7 +18,7 @@ Client Name: {client_name}
 Date of Birth: {dob}
 Application ID: {application_id}
 File Number: {file_number}
-Visa Subclass: Student Visa (Subclass 500)
+Visa Subclass: Student Visa (Subclass {subclass})
 Date of Refusal: {date_of_refusal}
 Representative: {representative}
 MARN: {marn}
@@ -187,14 +187,14 @@ To:
 Visa Officer
 Australian Embassy {embassy_location}
 
-Subject: Application for Tourist Visa (Subclass 600)
+Subject: Application for Tourist Visa (Subclass {subclass_tv})
 
 Applicants:
 {applicants_list}
 
 Dear Visa Officer,
 
-I am writing to formally apply for a Tourist Visa (Subclass 600) for {applicants_short}, to visit Australia from {travel_start_date} to {travel_end_date}.
+I am writing to formally apply for a Tourist Visa (Subclass {subclass_tv}) for {applicants_short}, to visit Australia from {travel_start_date} to {travel_end_date}.
 
 We intend to visit {family_relation} {family_member_name}, who is currently {family_member_status} in {family_member_location}. Our planned visit coincides with {special_occasions}, providing us with an opportunity to reunite as a family and spend meaningful time together. In addition, we plan to explore the cultural and tourist attractions of {planned_cities}.
 

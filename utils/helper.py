@@ -4,6 +4,7 @@ def get_form_value(form, key, default="[Not provided]"):
 
 def build_data_for_aat(form):
     return {
+        "Subclass": get_form_value(form, "subclass"),
         "state_office_address": get_form_value(form, "state_office_address"),
         "client_name": get_form_value(form, "client_name"),
         "dob": get_form_value(form, "dob"),
@@ -64,6 +65,7 @@ def build_data_for_art(form):
 def build_data_for_tourist_visa(form):
     return {
         "embassy_location": get_form_value(form, "embassy_location"),
+        "subclass_tv": get_form_value(form, "subclass_tv"),
         "applicants_list": get_form_value(form, "applicants_list"),  
         "applicants_short": get_form_value(form, "applicants_short"),
         "travel_start_date": get_form_value(form, "travel_start_date"),
